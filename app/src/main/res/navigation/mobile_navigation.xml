@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.damani.mysteryhistories20.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_nav_museo"
+            app:destination="@id/nav_museo" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_slideshow"
+            app:destination="@id/nav_slideshow" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_misterios"
+            app:destination="@id/nav_misterios" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_museo"
+        android:name="com.damani.mysteryhistories20.ui.gallery.GalleryFragment"
+        android:label="@string/menu_gallery"
+        tools:layout="@layout/fragment_gallery" >
+        <action
+            android:id="@+id/action_nav_museo_to_nav_home"
+            app:destination="@id/nav_home" />
+        <action
+            android:id="@+id/action_nav_museo_to_nav_museo_page"
+            app:destination="@id/nav_museo_page" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.damani.mysteryhistories20.ui.slideshow.SlideshowFragment"
+        android:label="@string/menu_slideshow"
+        tools:layout="@layout/fragment_slideshow" >
+        <action
+            android:id="@+id/action_nav_slideshow_to_nav_home"
+            app:destination="@id/nav_home" />
+        <action
+            android:id="@+id/action_nav_slideshow_to_nav_turismo_page"
+            app:destination="@id/nav_turismo_page" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_museo_page"
+        android:name="com.damani.mysteryhistories20.ui.MuseoPage.MuseoPageFragment"
+        android:label="Pagina de Museo"
+        tools:layout="@layout/fragment_museo_page">
+        <action
+            android:id="@+id/action_nav_museo_page_to_nav_museo"
+            app:destination="@id/nav_museo" />
+        <action
+            android:id="@+id/action_nav_museo_page_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_turismo_page"
+        android:name="com.damani.mysteryhistories20.ui.TurismoPage.TurismoPageFragment"
+        android:label="Pagina de Turismo"
+        tools:layout="@layout/fragment_turismo_page">
+        <action
+            android:id="@+id/action_nav_turismo_page_to_nav_slideshow"
+            app:destination="@id/nav_slideshow" />
+        <action
+            android:id="@+id/action_nav_turismo_page_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_misterios"
+        android:name="com.damani.mysteryhistories20.ui.misterios.MisteriosFragment"
+        android:label="Misterios"
+        tools:layout="@layout/fragment_misterios">
+        <action
+            android:id="@+id/action_nav_misterios_to_nav_home"
+            app:destination="@id/nav_home" />
+        <action
+            android:id="@+id/action_nav_misterios_to_nav_misterios_page"
+            app:destination="@id/nav_misterios_page" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_misterios_page"
+        android:name="com.damani.mysteryhistories20.ui.misteriosPage.MisteriosPageFragment"
+        android:label="Pagina de Misterio"
+        tools:layout="@layout/fragment_misterios_page">
+        <action
+            android:id="@+id/action_nav_misterios_page_to_nav_misterios"
+            app:destination="@id/nav_misterios" />
+        <action
+            android:id="@+id/action_nav_misterios_page_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
+</navigation>

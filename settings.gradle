@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "Mystery Histories 2.0"

@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Mystery Histories 2.0</string>
+    <string name="title_activity_inicio">Inicio</string>
+    <string name="nav_header_title">Mystery Histories </string>
+    <string name="nav_header_subtitle">DAMANI</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Inicio</string>
+    <string name="menu_gallery">Museos</string>
+    <string name="menu_slideshow">Turismo</string>
+    <string name="menu_favoritos">Favoritos</string>
+    <string name="menu_leyendas">Leyendas</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_museo_map">Map</string>
+    <string name="title_activity_maps_museo2">Map</string>
+</resources>
