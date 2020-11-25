@@ -1,4 +1,4 @@
-package com.damani.mysteryhistories20.ui.slideshow;
+package com.damani.mysteryhistories20.ui.turismo;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -6,18 +6,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.damani.mysteryhistories20.Adaptadores.ListAdapterMuseo;
 import com.damani.mysteryhistories20.Adaptadores.ListAdapterTurismo;
 import com.damani.mysteryhistories20.R;
-import com.damani.mysteryhistories20.Tipos.ListElementMuseo;
 import com.damani.mysteryhistories20.Tipos.ListElementTurismo;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -28,25 +23,17 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SlideshowFragment extends Fragment  implements ListAdapterTurismo.OnNoteListener{
+public class ListaTurismoFragment extends Fragment  implements ListAdapterTurismo.OnNoteTurismoListener {
 
-    private SlideshowViewModel slideshowViewModel;
+
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     public List<ListElementTurismo> listaTurismo;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        slideshowViewModel =
-                ViewModelProviders.of(this).get(SlideshowViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_slideshow, container, false);
+
+        View root = inflater.inflate(R.layout.fragment_turismo, container, false);
 
         init();
-        slideshowViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-
-            }
-
-        });
 
         return root;
     }
@@ -82,7 +69,7 @@ public class SlideshowFragment extends Fragment  implements ListAdapterTurismo.O
     }
 
     @Override
-    public void onNoteClick(int position) {
+    public void onNoteTurismoClick(int position) {
         Bundle bundle = new Bundle();
         bundle.putString("icono",listaTurismo.get(position).getIcono());
         bundle.putString("nombre",listaTurismo.get(position).getNombre());

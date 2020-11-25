@@ -20,13 +20,13 @@ public class ListAdapterMuseo extends RecyclerView.Adapter<ListAdapterMuseo.View
     private List<ListElementMuseo> mData;
     private LayoutInflater mInglater;
     private Context context;
-    private OnNoteListener mOnNoteListener;
+    private OnNoteMuseoListener mOnNoteMuseoListener;
 
-    public ListAdapterMuseo(List<ListElementMuseo> itemList, Context context, OnNoteListener onNoteListener){
+    public ListAdapterMuseo(List<ListElementMuseo> itemList, Context context, OnNoteMuseoListener onNoteMuseoListener){
         this.mInglater = LayoutInflater.from(context);
         this.context = context;
         this.mData = itemList;
-        this.mOnNoteListener = onNoteListener;
+        this.mOnNoteMuseoListener = onNoteMuseoListener;
 
     }
     @Override
@@ -36,7 +36,7 @@ public class ListAdapterMuseo extends RecyclerView.Adapter<ListAdapterMuseo.View
     @Override
     public ListAdapterMuseo.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
         View view = mInglater.inflate(R.layout.list_element, null);
-        return new ListAdapterMuseo.ViewHolder(view, mOnNoteListener);
+        return new ListAdapterMuseo.ViewHolder(view, mOnNoteMuseoListener);
     }
     @Override
     public void onBindViewHolder(final ListAdapterMuseo.ViewHolder holder , final int position){
@@ -49,14 +49,14 @@ public class ListAdapterMuseo extends RecyclerView.Adapter<ListAdapterMuseo.View
     public class ViewHolder extends  RecyclerView.ViewHolder implements View.OnClickListener {
         ImageView iconImage;
         TextView name, city, status;
-        OnNoteListener onNoteListener;
-        ViewHolder(View itemView, OnNoteListener onNoteListener){
+        OnNoteMuseoListener onNoteMuseoListener;
+        ViewHolder(View itemView, OnNoteMuseoListener onNoteMuseoListener){
             super(itemView);
             iconImage = itemView.findViewById(R.id.iconImageView);
             name = itemView.findViewById(R.id.nameTextView);
             city = itemView.findViewById(R.id.cityTextView);
             status = itemView.findViewById(R.id.statusTextView);
-            this.onNoteListener = onNoteListener;
+            this.onNoteMuseoListener = onNoteMuseoListener;
             itemView.setOnClickListener(this);
         }
 
@@ -69,11 +69,11 @@ public class ListAdapterMuseo extends RecyclerView.Adapter<ListAdapterMuseo.View
 
         @Override
         public void onClick(View v) {
-            onNoteListener.onNoteClick(getAdapterPosition());
+            onNoteMuseoListener.onNoteMuseoClick(getAdapterPosition());
         }
     }
-    public interface OnNoteListener{
-        void onNoteClick(int position);
+    public interface OnNoteMuseoListener {
+        void onNoteMuseoClick(int position);
 
     }
 }

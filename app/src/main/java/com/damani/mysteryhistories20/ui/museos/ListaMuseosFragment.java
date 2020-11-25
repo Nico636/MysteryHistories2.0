@@ -1,12 +1,10 @@
-package com.damani.mysteryhistories20.ui.gallery;
+package com.damani.mysteryhistories20.ui.museos;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -28,7 +26,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GalleryFragment extends Fragment  implements ListAdapterMuseo.OnNoteListener {
+public class ListaMuseosFragment extends Fragment  implements ListAdapterMuseo.OnNoteMuseoListener {
 
     Activity activity;
     iComunica iComunicaFragments;
@@ -38,9 +36,11 @@ public class GalleryFragment extends Fragment  implements ListAdapterMuseo.OnNot
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     public List<ListElementMuseo> listaMuseos;
     public View onCreateView(@NonNull LayoutInflater inflater,ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_gallery, container, false);
+        View root = inflater.inflate(R.layout.fragment_museo, container, false);
         recyclerView = root.findViewById(R.id.recyclerView4);
+
         init();
+
         return root;
     }
     public void init(){
@@ -84,7 +84,7 @@ public class GalleryFragment extends Fragment  implements ListAdapterMuseo.OnNot
     }
 
     @Override
-    public void onNoteClick(int position) {
+    public void onNoteMuseoClick(int position) {
 
         Bundle bundle = new Bundle();
         bundle.putString("icono",listaMuseos.get(position).getIcono());

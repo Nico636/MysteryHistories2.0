@@ -22,28 +22,40 @@
 
     <fragment
         android:id="@+id/nav_museo"
-        android:name="com.damani.mysteryhistories20.ui.gallery.GalleryFragment"
+        android:name="com.damani.mysteryhistories20.ui.museos.ListaMuseosFragment"
         android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" >
+        tools:layout="@layout/fragment_museo" >
         <action
             android:id="@+id/action_nav_museo_to_nav_home"
             app:destination="@id/nav_home" />
         <action
             android:id="@+id/action_nav_museo_to_nav_museo_page"
             app:destination="@id/nav_museo_page" />
+        <action
+            android:id="@+id/action_nav_museo_to_nav_slideshow"
+            app:destination="@id/nav_slideshow" />
+        <action
+            android:id="@+id/action_nav_museo_to_nav_misterios"
+            app:destination="@id/nav_misterios" />
     </fragment>
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="com.damani.mysteryhistories20.ui.slideshow.SlideshowFragment"
+        android:name="com.damani.mysteryhistories20.ui.turismo.ListaTurismoFragment"
         android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" >
+        tools:layout="@layout/fragment_turismo" >
         <action
             android:id="@+id/action_nav_slideshow_to_nav_home"
             app:destination="@id/nav_home" />
         <action
             android:id="@+id/action_nav_slideshow_to_nav_turismo_page"
             app:destination="@id/nav_turismo_page" />
+        <action
+            android:id="@+id/action_nav_slideshow_to_nav_museo"
+            app:destination="@id/nav_museo" />
+        <action
+            android:id="@+id/action_nav_slideshow_to_nav_misterios"
+            app:destination="@id/nav_misterios" />
     </fragment>
     <fragment
         android:id="@+id/nav_museo_page"
@@ -56,6 +68,7 @@
         <action
             android:id="@+id/action_nav_museo_page_to_nav_home"
             app:destination="@id/nav_home" />
+
     </fragment>
     <fragment
         android:id="@+id/nav_turismo_page"
@@ -71,7 +84,7 @@
     </fragment>
     <fragment
         android:id="@+id/nav_misterios"
-        android:name="com.damani.mysteryhistories20.ui.misterios.MisteriosFragment"
+        android:name="com.damani.mysteryhistories20.ui.misterios.ListaMisteriosFragment"
         android:label="Misterios"
         tools:layout="@layout/fragment_misterios">
         <action
@@ -80,6 +93,12 @@
         <action
             android:id="@+id/action_nav_misterios_to_nav_misterios_page"
             app:destination="@id/nav_misterios_page" />
+        <action
+            android:id="@+id/action_nav_misterios_to_nav_museo"
+            app:destination="@id/nav_museo" />
+        <action
+            android:id="@+id/action_nav_misterios_to_nav_slideshow"
+            app:destination="@id/nav_slideshow" />
     </fragment>
     <fragment
         android:id="@+id/nav_misterios_page"
@@ -93,4 +112,5 @@
             android:id="@+id/action_nav_misterios_page_to_nav_home"
             app:destination="@id/nav_home" />
     </fragment>
+
 </navigation>

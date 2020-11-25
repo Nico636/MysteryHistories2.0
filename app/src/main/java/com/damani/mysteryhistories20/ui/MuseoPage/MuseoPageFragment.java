@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentResultListener;
+import androidx.navigation.Navigation;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -162,8 +163,16 @@ public class MuseoPageFragment extends Fragment  {
         String Seis = Cinco[1].substring(11);
         String Siete = Seis.trim();
 
+/*
+        Bundle bundle = new Bundle();
+        bundle.putString("lat",Cinco[0]);
+        bundle.putString("lng",Siete);
+        bundle.putString("Nombre",txNombre.getText().toString());
+        getParentFragmentManager().setFragmentResult("key2",bundle);
 
 
+        Navigation.findNavController(getView()).navigate(R.id.nav_maps);
+        */
         Intent act = new Intent(getContext(), MapsMuseo2.class);
         act.putExtra("Lat", Cinco[0]);
         act.putExtra("Lng", Siete);

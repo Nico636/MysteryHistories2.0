@@ -17,7 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.damani.mysteryhistories20.R;
-import com.damani.mysteryhistories20.ui.MuseoPage.MuseoMap;
+import com.damani.mysteryhistories20.ui.MuseoPage.MapsMuseo2;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -36,7 +36,7 @@ public class TurismoPageFragment extends Fragment {
         private String mParam1;
         private String mParam2;*/
     private ImageView imagen, img1,img2,img3,img4;
-    private TextView txNombre,txDireccion,txHistoria,txValorEntrada;
+    private TextView txNombre,txDireccion,txHistoria,txValorEntrada,txHorario,txTelefono;
     private Button btn;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -114,6 +114,7 @@ public class TurismoPageFragment extends Fragment {
         img2 = view.findViewById(R.id.imagen_2);
         img3 = view.findViewById(R.id.imagen_3);
         img4 = view.findViewById(R.id.imagen_4);
+
         txDireccion = view.findViewById(R.id.direccionTxV);
         txHistoria = view.findViewById(R.id.historiaTxV);
         txNombre = view.findViewById(R.id.nombreTxV);
@@ -122,7 +123,7 @@ public class TurismoPageFragment extends Fragment {
     }
     public void AbrirMapa(){
 
-        db.collection("museos")
+        db.collection("turismo")
                 .whereEqualTo("nombre", txNombre.getText().toString())
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -156,7 +157,7 @@ public class TurismoPageFragment extends Fragment {
 
 
 
-        Intent act = new Intent(getContext(), MuseoMap.class);
+        Intent act = new Intent(getContext(), MapsMuseo2.class);
         act.putExtra("Lat", Cinco[0]);
         act.putExtra("Lng", Siete);
         act.putExtra("Nombre", txNombre.getText().toString());

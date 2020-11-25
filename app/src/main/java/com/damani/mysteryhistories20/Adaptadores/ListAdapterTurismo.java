@@ -10,7 +10,6 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.damani.mysteryhistories20.R;
-import com.damani.mysteryhistories20.Tipos.ListElementMuseo;
 import com.damani.mysteryhistories20.Tipos.ListElementTurismo;
 import com.squareup.picasso.Picasso;
 
@@ -20,13 +19,13 @@ public class ListAdapterTurismo extends RecyclerView.Adapter<ListAdapterTurismo.
     private List<ListElementTurismo> mData;
     private LayoutInflater mInglater;
     private Context context;
-    private ListAdapterTurismo.OnNoteListener mOnNoteListener;
+    private OnNoteTurismoListener mOnNoteTurismoListener;
 
-    public ListAdapterTurismo(List<ListElementTurismo> itemList, Context context, ListAdapterTurismo.OnNoteListener onNoteListener){
+    public ListAdapterTurismo(List<ListElementTurismo> itemList, Context context, OnNoteTurismoListener onNoteTurismoListener){
         this.mInglater = LayoutInflater.from(context);
         this.context = context;
         this.mData = itemList;
-        this.mOnNoteListener = onNoteListener;
+        this.mOnNoteTurismoListener = onNoteTurismoListener;
 
     }
     @Override
@@ -36,7 +35,7 @@ public class ListAdapterTurismo extends RecyclerView.Adapter<ListAdapterTurismo.
     @Override
     public ListAdapterTurismo.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
         View view = mInglater.inflate(R.layout.list_element, null);
-        return new ListAdapterTurismo.ViewHolder(view, mOnNoteListener);
+        return new ListAdapterTurismo.ViewHolder(view, mOnNoteTurismoListener);
     }
     @Override
     public void onBindViewHolder(final ListAdapterTurismo.ViewHolder holder , final int position){
@@ -49,14 +48,14 @@ public class ListAdapterTurismo extends RecyclerView.Adapter<ListAdapterTurismo.
     public class ViewHolder extends  RecyclerView.ViewHolder implements View.OnClickListener {
         ImageView iconImage;
         TextView name, city, status;
-        OnNoteListener onNoteListener;
-        ViewHolder(View itemView, OnNoteListener onNoteListener){
+        OnNoteTurismoListener onNoteTurismoListener;
+        ViewHolder(View itemView, OnNoteTurismoListener onNoteTurismoListener){
             super(itemView);
             iconImage = itemView.findViewById(R.id.iconImageView);
             name = itemView.findViewById(R.id.nameTextView);
             city = itemView.findViewById(R.id.cityTextView);
             status = itemView.findViewById(R.id.statusTextView);
-            this.onNoteListener = onNoteListener;
+            this.onNoteTurismoListener = onNoteTurismoListener;
             itemView.setOnClickListener(this);
         }
 
@@ -69,11 +68,11 @@ public class ListAdapterTurismo extends RecyclerView.Adapter<ListAdapterTurismo.
 
         @Override
         public void onClick(View v) {
-            onNoteListener.onNoteClick(getAdapterPosition());
+            onNoteTurismoListener.onNoteTurismoClick(getAdapterPosition());
         }
     }
-    public interface OnNoteListener{
-        void onNoteClick(int position);
+    public interface OnNoteTurismoListener {
+        void onNoteTurismoClick(int position);
 
     }
 }

@@ -18,7 +18,6 @@ import android.widget.TextView;
 
 import com.damani.mysteryhistories20.R;
 import com.damani.mysteryhistories20.ui.MuseoPage.MapsMuseo2;
-import com.damani.mysteryhistories20.ui.MuseoPage.MuseoMap;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;

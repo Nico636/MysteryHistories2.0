@@ -1,14 +1,12 @@
 package com.damani.mysteryhistories20;
 
 import android.os.Bundle;
-import android.view.View;
+import android.os.Handler;
 import android.view.Menu;
+import android.view.MenuItem;
 
 import com.damani.mysteryhistories20.Tipos.ListElementMuseo;
 import com.damani.mysteryhistories20.ui.MuseoPage.MuseoPageFragment;
-import com.damani.mysteryhistories20.ui.gallery.GalleryFragment;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.fragment.app.FragmentManager;
@@ -20,11 +18,6 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Inicio extends AppCompatActivity implements iComunica {
 
@@ -87,4 +80,11 @@ public class Inicio extends AppCompatActivity implements iComunica {
         fragmentTransaction.commit();
     }
 
+    public void acercaDe(MenuItem item) {
+
+        final LoadingDialog loadingDialog = new LoadingDialog(this);
+
+        loadingDialog.startLoadingDialog();
+
+    }
 }

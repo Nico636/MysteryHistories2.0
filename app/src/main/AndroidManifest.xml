@@ -28,10 +28,13 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
 
         <activity
             android:name=".ui.MuseoPage.MapsMuseo2"
-            android:label="@string/title_activity_maps_museo2"></activity>
+            android:label="@string/title_activity_maps_museo2" />
         <activity
             android:name=".Inicio"
             android:label="@string/title_activity_inicio"

@@ -38,10 +38,14 @@ public class MapsMuseo2 extends FragmentActivity implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-
+        //Recuperan las coordenadas
+        String Lat = getIntent().getStringExtra("Lat");
+        String Lng = getIntent().getStringExtra("Lng");
+        //Recupera el nombre
+        String Nombre = getIntent().getStringExtra("Nombre");
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        LatLng sydney = new LatLng(Double.valueOf(Lat),Double.valueOf(Lng));
+        mMap.addMarker(new MarkerOptions().position(sydney).title(Nombre));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
 }

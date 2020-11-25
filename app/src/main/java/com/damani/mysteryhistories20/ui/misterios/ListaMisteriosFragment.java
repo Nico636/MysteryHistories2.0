@@ -3,10 +3,7 @@ package com.damani.mysteryhistories20.ui.misterios;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,11 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.damani.mysteryhistories20.Adaptadores.ListAdapterMisterio;
-import com.damani.mysteryhistories20.Adaptadores.ListAdapterTurismo;
 import com.damani.mysteryhistories20.R;
 import com.damani.mysteryhistories20.Tipos.ListElementMisterio;
-import com.damani.mysteryhistories20.Tipos.ListElementTurismo;
-import com.damani.mysteryhistories20.ui.slideshow.SlideshowViewModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -31,15 +25,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MisteriosFragment extends Fragment implements ListAdapterMisterio.OnNoteListener {
+public class ListaMisteriosFragment extends Fragment implements ListAdapterMisterio.OnNoteListener {
 
-    private SlideshowViewModel slideshowViewModel;
+
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     public List<ListElementMisterio> listaMisterio;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        View root = inflater.inflate(R.layout.fragment_slideshow, container, false);
+        View root = inflater.inflate(R.layout.fragment_turismo, container, false);
         init();
 
         return root;
